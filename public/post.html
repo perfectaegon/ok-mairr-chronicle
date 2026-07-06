@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dispatch · The Perfectumair Chronicle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="paper">
+      <header class="masthead compact">
+        <div class="masthead-rule top"></div>
+        <a class="paper-title-link" href="/">
+          <h1 class="paper-title small">The Perfectumair Chronicle</h1>
+        </a>
+        <div class="masthead-rule bottom"></div>
+      </header>
+
+      <main class="article-page" id="article-page">
+        <p class="kicker">Dispatch</p>
+        <h2 class="article-headline" id="article-headline">Loading...</h2>
+        <p class="article-byline" id="article-byline"></p>
+        <div class="article-body" id="article-body"></div>
+        <a class="back-link" href="/">← Return to front page</a>
+      </main>
+
+      <div id="not-found" class="empty-edition hidden">
+        <h2>Edition not found</h2>
+        <p>This dispatch may have been removed from the archives.</p>
+        <a class="back-link" href="/">← Return to front page</a>
+      </div>
+
+      <footer class="paper-footer">
+        <div class="footer-rule"></div>
+        <p>© <span id="year"></span> The Perfectumair Chronicle</p>
+      </footer>
+    </div>
+
+    <script src="/post.js"></script>
+  </body>
+</html>

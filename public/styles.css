@@ -1,0 +1,407 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --paper: #f2ede4;
+  --paper-dark: #e8e0d0;
+  --ink: #1c1a17;
+  --ink-muted: #5c564c;
+  --accent: #8b1a1a;
+  --rule: #2a2620;
+  --column-gap: 2rem;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(0, 0, 0, 0.03), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(0, 0, 0, 0.04), transparent 35%),
+    #d9d0c0;
+  color: var(--ink);
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.paper {
+  max-width: 1100px;
+  margin: 1.5rem auto 3rem;
+  padding: 2rem 2.5rem 2.5rem;
+  background: var(--paper);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.08),
+    0 12px 40px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.masthead {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.masthead.compact {
+  margin-bottom: 1.5rem;
+}
+
+.masthead-rule {
+  height: 3px;
+  background: var(--rule);
+  margin: 0.5rem 0;
+}
+
+.masthead-rule.top {
+  height: 1px;
+  margin-bottom: 0.75rem;
+}
+
+.masthead-rule.bottom {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.dateline {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+
+.paper-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.paper-title.small {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+}
+
+.paper-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tagline {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-muted);
+  margin: 0.6rem 0 0;
+  letter-spacing: 0.08em;
+}
+
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.section-tab {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.section-tab:hover,
+.section-tab.active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.lead-story {
+  border-top: 4px double var(--rule);
+  border-bottom: 4px double var(--rule);
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.kicker {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+
+.lead-headline {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+}
+
+.lead-byline,
+.lead-excerpt {
+  color: var(--ink-muted);
+  margin: 0 0 0.75rem;
+}
+
+.lead-excerpt {
+  font-size: 1.1rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.read-more,
+.story-link,
+.back-link,
+.editor-link {
+  color: var(--accent);
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.read-more:hover,
+.story-link:hover,
+.back-link:hover,
+.editor-link:hover {
+  border-bottom-color: var(--accent);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--column-gap);
+  align-items: start;
+}
+
+.column-header {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1rem;
+}
+
+.column {
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  padding-right: var(--column-gap);
+}
+
+.column:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.story-card {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.story-card:last-child {
+  border-bottom: none;
+}
+
+.story-title,
+.photo-title,
+.video-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 0.35rem;
+}
+
+.story-date,
+.photo-date,
+.video-date {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 0.5rem;
+}
+
+.story-excerpt,
+.video-caption {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  margin: 0 0 0.5rem;
+}
+
+.photo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.photo-card {
+  margin: 0;
+}
+
+.photo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  filter: sepia(0.12) contrast(1.02);
+  background: var(--paper-dark);
+}
+
+.photo-link {
+  display: block;
+  text-decoration: none;
+}
+
+.photo-card figcaption {
+  margin-top: 0.4rem;
+}
+
+.video-card {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.video-frame {
+  border: 2px solid var(--rule);
+  background: #000;
+  margin-bottom: 0.6rem;
+}
+
+.video-frame video {
+  width: 100%;
+  display: block;
+  max-height: 220px;
+  object-fit: contain;
+}
+
+.article-page {
+  max-width: 680px;
+  margin: 0 auto 2rem;
+}
+
+.article-headline {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+.article-byline {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding-bottom: 1rem;
+  margin: 0 0 1.5rem;
+}
+
+.article-body {
+  font-size: 1.05rem;
+  white-space: pre-wrap;
+  margin-bottom: 2rem;
+}
+
+.article-body p {
+  margin: 0 0 1rem;
+}
+
+.empty-edition {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.empty-kicker {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.paper-footer {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.footer-rule {
+  height: 4px;
+  background: var(--rule);
+  margin-bottom: 1rem;
+}
+
+.paper-footer p {
+  margin: 0 0 0.5rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.filter-hidden {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+
+  .column {
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .column:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .paper {
+    margin: 0;
+    padding: 1.25rem 1rem 2rem;
+    box-shadow: none;
+    border: none;
+  }
+
+  .section-nav {
+    gap: 0.35rem;
+  }
+
+  .section-tab {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editor's Desk · The Perfectumair Chronicle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/admin/admin.css" />
+  </head>
+  <body>
+    <div class="desk-shell">
+      <aside class="desk-sidebar">
+        <a class="desk-brand" href="/">
+          <span class="brand-icon">✒</span>
+          <span>Editor's Desk</span>
+        </a>
+        <p class="desk-subtitle">The Perfectumair Chronicle</p>
+        <p class="desk-copy">Publish dispatches, photographs, and films to your public newspaper.</p>
+        <a class="desk-link" href="/">View front page →</a>
+      </aside>
+
+      <main class="desk-main">
+        <section id="login-panel" class="desk-panel">
+          <p class="panel-kicker">Restricted Access</p>
+          <h1>Sign in to publish</h1>
+          <p>Only the editor may post and manage content from here.</p>
+          <form id="login-form" class="desk-form">
+            <label class="field">
+              <span>Password</span>
+              <input id="password-input" type="password" autocomplete="current-password" required />
+            </label>
+            <button class="btn-primary" type="submit">Enter Editor's Desk</button>
+          </form>
+          <p id="login-status" class="status" aria-live="polite"></p>
+        </section>
+
+        <section id="dashboard-panel" class="desk-panel hidden">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Publishing Console</p>
+              <h1>Compose &amp; publish</h1>
+            </div>
+            <button id="logout-button" class="btn-ghost" type="button">Sign out</button>
+          </div>
+
+          <div class="publish-tabs" role="tablist">
+            <button class="publish-tab active" data-tab="article" type="button">Write dispatch</button>
+            <button class="publish-tab" data-tab="photo" type="button">Upload photograph</button>
+            <button class="publish-tab" data-tab="video" type="button">Upload film</button>
+          </div>
+
+          <form id="article-form" class="publish-form">
+            <label class="field">
+              <span>Headline</span>
+              <input id="article-title" type="text" maxlength="200" placeholder="The headline of your dispatch..." required />
+            </label>
+            <label class="field">
+              <span>Summary (optional)</span>
+              <input id="article-excerpt" type="text" maxlength="400" placeholder="A brief summary for the front page..." />
+            </label>
+            <label class="field">
+              <span>Body</span>
+              <textarea id="article-body" rows="12" maxlength="50000" placeholder="Write your dispatch here..." required></textarea>
+            </label>
+            <button class="btn-primary" type="submit">Publish dispatch</button>
+          </form>
+
+          <form id="photo-form" class="publish-form hidden">
+            <label class="dropzone" id="photo-dropzone" for="photo-input">
+              <input id="photo-input" name="file" type="file" accept="image/jpeg,image/png,image/webp,image/gif" hidden />
+              <span class="dropzone-icon">📷</span>
+              <p>Drop a photograph here or choose a file</p>
+              <span class="dropzone-hint">JPG, PNG, WebP, or GIF · up to 15 MB</span>
+              <span class="btn-secondary">Choose file</span>
+            </label>
+            <p id="photo-filename" class="file-name"></p>
+            <label class="field">
+              <span>Title</span>
+              <input id="photo-title" type="text" maxlength="200" placeholder="Caption or title..." />
+            </label>
+            <label class="field">
+              <span>Caption (optional)</span>
+              <input id="photo-caption" type="text" maxlength="500" placeholder="Where and when this was captured..." />
+            </label>
+            <button class="btn-primary" type="submit">Publish photograph</button>
+          </form>
+
+          <form id="video-form" class="publish-form hidden">
+            <label class="dropzone" id="video-dropzone" for="video-input">
+              <input id="video-input" name="file" type="file" accept="video/mp4,video/webm,video/quicktime" hidden />
+              <span class="dropzone-icon">🎬</span>
+              <p>Drop a video here or choose a file</p>
+              <span class="dropzone-hint">MP4, WebM, or MOV · up to 100 MB</span>
+              <span class="btn-secondary">Choose file</span>
+            </label>
+            <p id="video-filename" class="file-name"></p>
+            <label class="field">
+              <span>Title</span>
+              <input id="video-title" type="text" maxlength="200" placeholder="Title of your film..." />
+            </label>
+            <label class="field">
+              <span>Caption (optional)</span>
+              <input id="video-caption" type="text" maxlength="500" placeholder="Brief description..." />
+            </label>
+            <button class="btn-primary" type="submit">Publish film</button>
+          </form>
+
+          <p id="publish-status" class="status" aria-live="polite"></p>
+
+          <div class="archive-header">
+            <h2>Published archive</h2>
+            <p id="archive-count">0 items</p>
+          </div>
+          <div id="archive-list" class="archive-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="archive-item-template">
+      <article class="archive-item">
+        <div class="archive-preview"></div>
+        <div class="archive-body">
+          <span class="archive-type"></span>
+          <h3 class="archive-title"></h3>
+          <p class="archive-date"></p>
+          <button class="btn-danger" type="button">Remove</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="/admin/admin.js"></script>
+  </body>
+</html>
