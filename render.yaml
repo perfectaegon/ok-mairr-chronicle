@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: perfectumair-chronicle
+    name: okmair-chronicle
     runtime: ruby
     plan: free
     buildCommand: bundle install

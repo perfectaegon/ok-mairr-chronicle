@@ -41,9 +41,9 @@ async function loadArticle() {
       throw new Error("Not an article");
     }
 
-    document.title = `${post.title} · The Perfectumair Chronicle`;
+    document.title = `${post.title} · The Okmair Chronicle`;
     headline.textContent = post.title;
-    byline.textContent = `By Umair · ${formatDate(post.published_at)}`;
+    byline.textContent = `By Okmair · ${formatDate(post.published_at)}`;
     body.textContent = post.body;
   } catch {
     page.classList.add("hidden");

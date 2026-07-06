@@ -101,7 +101,7 @@ function setLeadStory(article) {
 
   leadStory.classList.remove("hidden");
   leadHeadline.textContent = article.title;
-  leadByline.textContent = `By Umair · ${formatDate(article.published_at)}`;
+  leadByline.textContent = `By Okmair · ${formatDate(article.published_at)}`;
   leadExcerpt.textContent = article.excerpt || article.body.slice(0, 220);
   leadLink.href = `/post.html?id=${article.id}`;
 }

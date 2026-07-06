@@ -505,6 +505,6 @@ end
 
 trap("INT") { server.shutdown }
 
-puts "The Perfectumair Chronicle running at http://#{HOST}:#{PORT}"
+puts "The Okmair Chronicle running at http://#{HOST}:#{PORT}"
 puts "Editor's desk (admin): http://#{HOST}:#{PORT}/admin"
 server.start
