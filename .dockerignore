@@ -4,3 +4,7 @@ data/sessions.json
 data/uploads/*
 !data/uploads/.gitkeep
 .DS_Store
+vendor
+FREE-HOSTING.md
+bin
+render.yaml

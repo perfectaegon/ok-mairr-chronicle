@@ -14,6 +14,7 @@ RUN bundle config set --local deployment 'true' && bundle install
 COPY . .
 
 ENV HOST=0.0.0.0
-EXPOSE 10000
+ENV PORT=4568
+EXPOSE 4568
 
 CMD ["bundle", "exec", "ruby", "server.rb"]

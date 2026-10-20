@@ -1,0 +1,48 @@
+# Free self-host stack: Chronicle app + Caddy (HTTPS).
+# See FREE-HOSTING.md for Oracle Cloud + DuckDNS setup.
+
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "4568"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD:?Set ADMIN_PASSWORD in .env}"
+      SESSION_HOURS: "${SESSION_HOURS:-168}"
+      FORCE_SSL: "0"
+      GITHUB_TOKEN: "${GITHUB_TOKEN:-}"
+      GITHUB_REPO: "${GITHUB_REPO:-perfectaegon/ok-mairr-chronicle}"
+      GITHUB_BRANCH: "${GITHUB_BRANCH:-main}"
+      DATA_DIR: "/app/data"
+    volumes:
+      # Bind-mount so a git clone keeps your existing posts/photos on disk
+      - ./data:/app/data
+    expose:
+      - "4568"
+    healthcheck:
+      test: ["CMD", "ruby", "-e", "require 'net/http'; exit(Net::HTTP.get_response(URI('http://127.0.0.1:4568/')).code == '200' ? 0 : 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      web:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: "${DOMAIN:?Set DOMAIN in .env (e.g. okmairr.duckdns.org)}"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+
+volumes:
+  caddy-data:
+  caddy-config:
