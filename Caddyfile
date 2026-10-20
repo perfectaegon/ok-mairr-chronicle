@@ -1,0 +1,19 @@
+# DOMAIN comes from docker-compose (e.g. okmairr.duckdns.org).
+# Caddy gets a free Let's Encrypt certificate automatically.
+
+{$DOMAIN} {
+	encode gzip
+	reverse_proxy web:4568
+
+	header {
+		# Basic hardening for a personal public site
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}
